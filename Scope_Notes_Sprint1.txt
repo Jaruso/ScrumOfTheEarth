@@ -1,0 +1,63 @@
+Assembly Translator 
+Scope Constraints
+
+Registers
+----------
+-	FPU Registers
+	-	MASM - ST(0)
+	-	NASM - ST0
+-	16 bit (al)
+-	32 bit (eax)
+
+
+Symbols
+--------
+-	Current location counter
+	-	$
+-	Labels?
+	-	Case sensitivity(NASM labels)
+-	Strings
+	-	Single or Double quotes for
+-	Register Prefixes 
+-	Uninitialized memory
+	-	?
+
+References 
+-----------
+	-	By contents of variable
+	-	By contents of address
+	-	immediate byte value
+	
+Structure
+---------
+-	Command structure
+	-	Destination first, source second 
+-	File structure
+	-	.data
+	-	.bss
+	-	.text
+	-	
+-	Function structure	
+	-	label \nPROC\n ...\n ret \n label \n ENDP
+-	Function Prototypes
+	-	Need to look into this more
+	
+Operations
+------------
+-	Clear
+-	Move
+-	Include
+-	Add/Subtract
+-	loops
+
+Types
+-----------
+-	BYTE
+-	WORD
+-	DWORD
+-	QWORD
+
+Random idea
+----------
+-	spit out all unrecognised commands back out in original spot in input
+-	provide list of unrecognised commands at end
