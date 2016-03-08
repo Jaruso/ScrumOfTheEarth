@@ -7,16 +7,15 @@ vector<string> convertMov (vector<string> masmstr, vector<string> vars){
     
     vector<string> nasm;
     int i = 0;
-    bool size;
     vector<string> tmpline;
     masmstr = make3sections(masmstr);
-    std::vector<string> varnames;
+    string size;
     
-    for(std::vector<string>::iterator it = vars.begin(); it != vars.end(); ++it) {
+   // for(std::vector<string>::iterator it = vars.begin(); it != vars.end(); ++it) {
       //cout << *it;
-    }
+   // }
       //
-    cout << " convert \n";
+   // cout << " convert \n";
     for(string str: masmstr){
       //cout << str << " ";
       if(i == 0) // command
@@ -35,21 +34,16 @@ vector<string> convertMov (vector<string> masmstr, vector<string> vars){
         }
         else{ // no space in the string
           if(isInlist(str, regList())){ //str is a register
-            cout << "in else and if";
-             nasm.push_back(str);
+            //cout << "in else and if";
+             nasm.push_back(str+ ",");
           }
           else{ // str is NOT a register
-            cout << "in else and else\n";
-            if(!checkData(str, varnames)){
-              stringstream ss(str);
-              string name, size;
-              ss >> size;
-              getline(ss, name, ' ');
-              ss << size;
-              cout << "  --  " << name << " " << size << "  --\n";
+            //cout << "in else and else\n";
+            size = checkData(str, vars);
+            if(size != ""){
+              nasm.push_back(size + " [" + str +"],");
             }
-          
-            
+  
           }
         }
         
@@ -93,19 +87,20 @@ int main()
 
     ofstream myfile;
     myfile.open ("testMASMtext.txt");
+    string test = "";
 
-    string test = "mov temp, eax";
+    cout << " \t Current variables for testing are (temp DWORD) and (otemp BYTE)\n";
+    cout << "Input a line of Masm for translating. \n";
+    getline(cin, test);
+ //   test = "mov eax, ebx";
 
   
-    if(checkData("temp",tempVars()))
-      cout << "its here\n";
-    else
-      cout << "not here\n";
     vector<string> newString = toNasm(split(test, ' '));
 
-
+    cout << "Input: " << endl;
     cout << test + "\n";
    
+    cout << "Output: " << endl;
     for(string str: newString){
       cout << str + " ";
     }

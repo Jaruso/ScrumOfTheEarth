@@ -16,7 +16,7 @@ vector<string> split(string str, char delimiter);
 vector<string> toNasm(vector<string> input);
 vector<string> regList();
 bool isInlist(string key, vector<string> list);
-bool checkData(string key, vector<string> s);
+string checkData(string key, vector<string> s);
 vector<string> convertMov (vector<string> masmstr,  vector<string> vars);
 vector<string> tempVars();
 
@@ -186,9 +186,7 @@ bool isInlist(string key, vector<string> list){
   
 }
 
-
-
-bool checkData(string key, vector<string> list){
+string checkData(string key, vector<string> list){
 
 // checks if the key is in the list. This list contians varibles,
 // with each string being the name, and size of tghe variable respectivlly.
@@ -197,12 +195,17 @@ string tok;
 for(std::vector<string>::iterator it = list.begin(); it != list.end(); ++it) {
     stringstream ss(*it);
     getline(ss, tok, ' ');
+    cout << tok << "  < name | size --> ";
+    
     if(tok == key)
     {
-      return true;
+      getline(ss, tok, ' ');
+      cout << tok << "\n";
+          
+      return tok;
     }
   }
-  return false;
+  return "";
 }
 
 

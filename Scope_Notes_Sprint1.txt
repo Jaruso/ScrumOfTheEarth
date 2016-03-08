@@ -57,6 +57,60 @@ Types
 -	DWORD
 -	QWORD
 
+32-Bit Registers
+-----------------
+eax
+ebx
+ecx
+edx
+EAX
+EBX
+ECX
+EDX
+
+ebi
+edi
+esp
+epi
+edi
+EBI
+EDI
+ESP
+EPI
+EDI
+
+16-Bit Registers
+----------------
+ax
+bx
+cx
+dx
+AX
+BX
+CX
+DX
+
+ah
+bh
+ch
+dh
+AH
+BH
+CH
+DH
+
+al
+bl
+cl
+dl
+AL
+BL
+CL
+DL
+
+  
+  
+
 Random idea
 ----------
 -	spit out all unrecognised commands back out in original spot in input
