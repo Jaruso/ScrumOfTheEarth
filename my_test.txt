@@ -5,21 +5,19 @@ ExitProcess PROTO,
 dwExitCode:DWORD
 
 .data
-sum DWORD ?
-dif DWORD 0, 1, 2, 3
+sum DWORD 0
+dif DWORD 0
 
 .code
 main PROC
 mov eax, 30
 mov ebx, OFFSET sum
 add eax, ebx
-inc eax
 mov sum, eax
 
 mov eax, 30
 mov ebx, 15
 sub eax, ebx
-dec ebx
 mov dif, eax
 
 

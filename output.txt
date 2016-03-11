@@ -1,0 +1,32 @@
+
+
+
+
+
+
+SECTION .data 
+sum: resd 1
+dif: DD, 0,1,2,3
+
+SECTION .text 
+global _main
+_main: 
+mov eax, 30
+mov ebx, sum 
+add eax, ebx 
+inc eax 
+mov DWORD [sum], eax 
+
+mov eax, 30
+mov ebx, 15
+sub eax, ebx 
+dec ebx 
+mov DWORD [dif], eax 
+
+
+_exit:
+mov eax, 0
+mov ebx, 1
+int 80h 
+
+

@@ -1,0 +1,29 @@
+ ; Could not convert --> { .386  }  
+ ; Could not convert --> { .MODEL FLAT  }  
+ ; Could not convert --> { .STACK 4096  }  
+ ; Could not convert --> { ExitProcess PROTO,  }  
+ ; Could not convert --> { dwExitCode:DWORD  }  
+
+SECTION .data 
+sum: DD 0
+dif: DD 0
+
+SECTION .text 
+global _main
+_main: 
+mov eax, 30
+mov ebx, sum 
+add eax, ebx 
+inc eax 
+mov DWORD [sum], eax 
+
+mov eax, 30
+mov ebx, 15
+sub eax, ebx 
+dec ebx 
+mov DWORD [dif], eax 
+
+
+ ; Could not convert --> { INVOKE ExitProcess, 0 }  
+
+ ; Could not convert --> { END  }  
